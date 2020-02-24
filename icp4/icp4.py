@@ -10,6 +10,19 @@ sqlContext = SQLContext(sc)
 # Reading data file in data frame in the form of RDD (Resilient Distributed Dataset)
 df = sqlContext.read.csv(SparkFiles.get("D:/Masters/KDM/data.csv"), header=True, inferSchema= True)
 
+# RDD Actions
+# Collect all the information present in the data set
+action_1 = df.collect()
+print("Action 1: Collecting all the information present within the data set")
+print(action_1)
+# Count number of elements in the data set
+action_2 = df.count()
+print("Action 2: Count the number of data points present within the data set")
+print(action_2)
+# Return first 'n' number of elements from the data set
+action_3 = df.take(2)
+print("Action 3: Taking out 'n' number of data points from the entire data set")
+print(action_3)
 
 
 # RDD Transformations with Actions
