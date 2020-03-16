@@ -13,6 +13,80 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#normalizedString -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#normalizedString">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#hasTeacher -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#hasTeacher">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#teachesSubject"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#subjects"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#teachesSubject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#teachesSubject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Teachers"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Subject"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Subject -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Subject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#subjects"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -27,10 +101,26 @@
     
 
 
+    <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Teachers -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Teachers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#subjects"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#subjects -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#subjects">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#School"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Renuka_Ma&apos;am -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Renuka_Ma&apos;am">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#School"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Teachers"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Sunita_Ma&apos;am"/>
     </owl:Class>
     
@@ -39,7 +129,7 @@
     <!-- http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Sunita_Ma&apos;am -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Sunita_Ma&apos;am">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#School"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/madhuri&apos;spc/ontologies/2020/2/untitled-ontology-8#Teachers"/>
     </owl:Class>
 </rdf:RDF>
 
