@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/triplets"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/triplets">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Emotion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Helen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Thing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#arrival"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#book"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#curiosity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#joy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#she"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#water"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#characterizes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#overtakes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#writes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Name"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/University#Person"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Helen"/>
+        <Class IRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/University#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#arrival"/>
+        <Class IRI="#Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#book"/>
+        <Class IRI="#Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#curiosity"/>
+        <Class IRI="#Emotion"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#joy"/>
+        <Class IRI="#Emotion"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#she"/>
+        <Class IRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/University#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#water"/>
+        <Class IRI="#Thing"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/University#Person"/>
+        <Class IRI="#Activity"/>
+        <Class IRI="#Emotion"/>
+        <Class IRI="#Thing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/University#Person"/>
+        <Class IRI="#Emotion"/>
+        <Class IRI="#Thing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#curiosity"/>
+        <Class IRI="#joy"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#characterizes"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#writes"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#characterizes"/>
+        <Class IRI="#she"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#overtakes"/>
+        <Class IRI="#curiosity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#overtakes"/>
+        <Class IRI="#joy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#overtakes"/>
+        <Class IRI="#water"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class IRI="#she"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#characterizes"/>
+        <Class IRI="#arrival"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#overtakes"/>
+        <Class IRI="#Helen"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class IRI="#book"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Name"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Name"/>
+        <Class IRI="http://www.semanticweb.org/gowthamyesg/ontologies/2020/2/University#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#Name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
