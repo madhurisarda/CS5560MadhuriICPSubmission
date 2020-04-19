@@ -105,6 +105,77 @@ print("Triplets:", triplets)
 #     """
 #     return stem_words(remove_stop_words(initial_clean(text)))
 
+#start
+#LDA
+import gensim
+import pyLDAvis.gensim
+import nltk
+#nltk.download('stopwords')
+stop_words = stopwords.words('english') #get all the stop words from nlkt which are in english language
+stop_words.extend(['news', 'say','use', 'not', 'would', 'say', 'could', '(', ')', ',', '%', '_', 'be', 'know', 'good', 'go', 'get', 'do','took','time','year',
+'done', 'try', 'many', 'some','nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot', 'lack', 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line','even', 'also', 'may', 'take', 'come', 'new','said', 'like','people'])
+# add custom stop words
+def remove_stop_words(text):
+     return [word for word in text if word not in stop_words]
+def initial_clean(text):
+    """
+    Function to clean text-remove punctuations, lowercase text etc.
+    """
+    text = re.sub("[^a-zA-Z ]", "", text) #just pick words lower or upper case
+    text = text.lower()  # change to lower case text
+    text = nltk.word_tokenize(text)
+    return (text)
+#Create a Gensim dictionary from the tokenized data
+tokenized_abstracts = remove_stop_words(initial_clean(clean_data))
+tokenized = tokenized_abstracts
+tokenized = [d.split() for d in tokenized]
+
+#Creating term dictionary of corpus, where each unique term is assigned an index.
+dictionary = corpora.Dictionary(tokenized)
+#Filter terms which occurs in less than 1 abstract and more than 80% of the abstract.
+dictionary.filter_extremes(no_below=1, no_above=0.8)
+#convert the dictionary to a bag of words corpus
+corpus = [dictionary.doc2bow(tokens) for tokens in tokenized]
+print("corpus")
+print(corpus[:1])
+
+print([[(dictionary[id], freq) for id, freq in cp] for cp in corpus[:1]])
+
+
+stemmer = PorterStemmer()
+stemming = [stemmer.stem(str(e)) for e in clean_data_word]
+stemming = [word for word in stemming if len(word) > 1] # no single letter words
+
+tokenized_abstracts = remove_stop_words(initial_clean(clean_data))
+#LDA
+ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics = 6, id2word=dictionary, passes=15)
+#saving the model
+ldamodel.save('model_combined.gensim')
+topics = ldamodel.print_topics(num_words=4)
+print('\n')
+print("Now printing the topics and their composition")
+print("This output shows the Topic-Words matrix for the 6 topics created and the 4 words within each topic")
+for topic in topics:
+   print(topic)
+
+
+#finding the similarity of the first abstracts with topics
+get_document_topics = ldamodel.get_document_topics(corpus[0])
+print('\n')
+print("The similarity of this abstracts with the topics and respective similarity score are ")
+print(get_document_topics)
+
+#visualizing topics
+lda_viz = gensim.models.ldamodel.LdaModel.load('model_combined.gensim')
+lda_display = pyLDAvis.gensim.prepare(lda_viz, corpus, dictionary, sort_topics=True)
+pyLDAvis.show(lda_display)
+
+
+
+
+#end
+
+
 
 
 f = open('output.txt','w')
